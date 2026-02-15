@@ -25,6 +25,23 @@
   <h2>Ducks: <span id="score">0</span></h2>
 
   <div id="duck">🦆</div>
+  <script>
+let score = 0;
+
+const scoreText = document.getElementById("score");
+const duck = document.getElementById("duck");
+
+// Create sound once
+const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+
+duck.onclick = function() {
+  score++;
+  scoreText.innerText = score;
+
+  clickSound.currentTime = 0; // lets it replay fast
+  clickSound.play();
+}
+</script>
 
   <br>
   <button onclick="upgrade()">Upgrade (+1 per click) - Cost: <span id="cost">10</span></button>
