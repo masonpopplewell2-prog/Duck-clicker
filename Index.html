@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Duck Clicker</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background-color: #cceeff;
+    }
+    #duck {
+      font-size: 120px;
+      cursor: pointer;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🦆 Duck Clicker</h1>
+  <h2>Ducks: <span id="score">0</span></h2>
+
+  <div id="duck">🦆</div>
+
+  <br>
+  <button onclick="upgrade()">Upgrade (+1 per click) - Cost: <span id="cost">10</span></button>
+
+  <script>
+    let score = 0;
+    let perClick = 1;
+    let cost = 10;
+
+    document.getElementById("duck").onclick = function() {
+      score += perClick;
+      document.getElementById("score").innerText = score;
+    }
+
+    function upgrade() {
+      if (score >= cost) {
+        score -= cost;
+        perClick++;
+        cost = Math.floor(cost * 1.5);
+        document.getElementById("score").innerText = score;
+        document.getElementById("cost").innerText = cost;
+      }
+    }
+  </script>
+
+</body>
+</html>
